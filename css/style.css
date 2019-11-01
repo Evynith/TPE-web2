@@ -1,0 +1,268 @@
+/*-------------------------------------------------general-----------------------------------------------*/
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #ffffff;
+    list-style:none;
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    background: black;
+}
+a:link{ 
+    text-decoration:none; 
+} 
+footer a:visited {
+    color: #003fff;
+}
+.inexistente{
+    display: none;
+}
+.invisible{
+    visibility: hidden;
+}
+/*-------------------------------------------------nav-----------------------------------------------*/
+.logo{
+    width: 40%;
+    height: 90%;
+}
+  .aMostrar{
+    width: 100%;
+    height: 5vh;
+    position:fixed;
+    top:0;
+  }
+.barraNav{
+    height: 100%;
+    background: rgb(74, 74, 255);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+}
+.navPC{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.btnNav{  
+    color: #ffffff;
+    background-color: rgb(74, 74, 255);
+    margin: 0 3px;
+}
+.btnNav:hover{
+    background: rgb(158, 185, 233);
+    border-radius: 15px;
+}
+.navMovil{
+    width: 25%;
+    height: auto;
+    position: absolute;
+    top: 7%; 
+    right: 70%;
+    background: rgb(74, 74, 255);
+}
+.navMovil a{
+    color: #ffffff;
+}
+/*----------------------------------------footer---------------------------------------------------------*/
+footer{
+    background-color: rgb(243, 243, 243);
+    border-top: 5px solid rgb(228, 228, 228);    
+    clear: both;
+    width: 100%;
+    height: 10vh;
+}
+.redes{
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+/*----------------------------------------home-------------------------------------------------------*/
+/*-------------------carousel-------------------------------------------------------*/
+#atras,#siguiente{
+    padding: 0.5rem 1rem;
+    font-size: 2rem;
+    background: none;
+    border-radius: 45%;
+    border: solid white;
+    /*opacity: 0.5;*/
+}
+.carousel{
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+.btnCarousel{
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.imgCarousel{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+/*----------------------------------------------------------------------------------*/
+@supports(object-fit: cover){
+    .btnNvl1 img{
+      height: 70%;
+      width:70%;
+      object-fit: cover;
+      object-position: center;
+    }
+}
+.registroHome{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 3rem;
+}
+.galeria{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+}
+.ranking{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.registroHome figure{
+    margin:0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+aside h2{
+    font-size: 2rem;
+    text-align: center;
+}
+/*------------------------------------------twitter--------------------------------------------*/
+.box{
+    height: 90%;
+    display: block;
+    overflow-y: scroll;
+}
+.box::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.box::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.box::-webkit-scrollbar-button:increment,.box::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.box::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.box::-webkit-scrollbar-thumb {
+    background-color: #2e2e2e;
+    border-radius: 20px;
+    border: 2px solid #696969;
+}
+
+.box::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
+/*----------------------------------------media query------------------------------------------*/
+/*---------------------------------------------------------------------------------------------*/
+/*----------------------------------------------PC---------------------------------------------*/ 
+@media only screen and (min-width: 650px) {
+    /*----------home------------*/
+
+    .homeContainer {
+        display: grid;
+        grid-template-columns: repeat(8,1fr);
+        grid-template-rows: 100vh 40vh 30vh 20vh;
+        grid-template-areas: 
+        "header header header header header header header header" 
+        "article1 article1 article1 article1 article1 article1 aside aside" 
+        "galeria galeria galeria ranking ranking ranking aside aside" 
+        "video video plan plan graduados graduados aside aside";
+      }
+      
+      header { grid-area: header; }
+      .registroHome { grid-area: article1; }
+      aside { grid-area: aside; }
+      .video { grid-area: video; }
+      .plan { grid-area: plan; }
+      .alumnos { grid-area: graduados; }
+      .galeria { grid-area: galeria; }
+      .ranking { grid-area: ranking; }
+
+      nav{
+          height: 5%;
+      }
+     .barraNav{
+         visibility: hidden;
+     }
+      .aMostrar:hover .barraNav{
+        visibility: visible;
+      }
+      .registroHome{
+          background: #39af29;
+      }
+      aside{
+        background: #747474;
+       }
+    .btnNvl2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: bisque;
+    }
+   .navMovil{
+       display: none;
+   }
+   footer{
+       display: flex;
+       flex-direction: row;
+   }
+   /*--------ranking---------------------------------------------*/
+   .rankingContainer figure{
+       background: #39af29;
+    }
+    .rankingContainer{
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: repeat(5,1fr);
+        grid-template-areas: ". . img1 . ." ". img2 img1 img3 ." "img5 img2 img1 img3 img4" "img5 img2 img1 img3 img4" "img5 img2 img1 img3 img4";
+    }
+    
+    .img1 { grid-area: img1; }
+    .img2 { grid-area: img2; }
+    .img3 { grid-area: img3; }
+    .img4 { grid-area: img4; }
+    .img5 { grid-area: img5; }
+}
+/*--------------------------------------------MOVIL--------------------------------------------*/
