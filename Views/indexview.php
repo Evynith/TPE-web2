@@ -1,10 +1,10 @@
 <?php
 
-require_once('libs/Smarty.class.php');
+require_once "libs/Smarty.class.php";
 require_once "./Helpers/AuthHelper.php";
 
-class CursosView {
-    
+class indexView {
+
     private $smarty;
     private $userName;
 
@@ -19,9 +19,8 @@ class CursosView {
         $this->smarty->assign('userLevel', $this->userLevel); 
     }
 
-    public function DisplayCursos($Cursos){
-        $this->smarty->assign('titulo',"Mostrar Cursos");
-        $this->smarty->assign('lista_Cursos',$Cursos);
-        $this->smarty->display('templates/ver_cursos.tpl');
+    public function DisplayIndex(){
+        $this->smarty->assign('titulo',"Inicio");
+        $this->smarty->display('templates/index.tpl');
     }
 }

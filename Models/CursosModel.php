@@ -5,7 +5,7 @@ class CursosModel {
     private $db;
 
     function __construct(){
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_academia_test_2;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_academia;charset=utf8', 'root', '');
     }
 
 	public function GetCursos(){
@@ -24,9 +24,10 @@ class CursosModel {
         return $curso;
     }
 
-    public function InsertarCurso($nombre,$profesor,$agno_correspondiente,$id_curso){
-        $sentencia = $this->db->prepare("INSERT INTO curso(nombre,profesor,agno_correspondiente,id_curso) VALUES(?,?,?,?)");
-        $sentencia->execute(array($nombre,$profesor,$agno_correspondiente,$id_curso));
+    public function InsertarCurso($nombre,$profesor,$agno_correspondiente,$descripcion){
+        $sentencia = $this->db->prepare("INSERT INTO curso(nombre,profesor,agno_correspondiente,descripcion) VALUES(?,?,?,?)");
+        var_dump($nombre);
+        $sentencia->execute(array($nombre,$profesor,$agno_correspondiente,$descripcion));
     }
 
     public function ActualizarCurso($nombre,$id){
@@ -40,5 +41,3 @@ class CursosModel {
         $sentencia->execute(array($id));
     }
 }
-
-?>

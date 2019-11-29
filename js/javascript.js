@@ -1,35 +1,5 @@
 "use strict";
 
-/*
-document.addEventListener('DOMContentLoaded', iniciarPagina);
-function iniciarPagina() {
-*/
-
-//window.onload = function () { //(para usar solo cuando imagenes y demas cosas pesadas ya cargaron)
-   
-$(document).ready(function(){ //deprecated (para usar solo con elemento del DOM)
-
-//$(function() { //supuesto metodo actual
-     
-    function meterNavYFoot(){
-        /*
-        let link = document.createElement("object");
-        link.setAttribute( "data", "academia/menu.html");
-        link.setAttribute( "type", "text/html");
-        link.classList.add("navegador");
-        document.body.nav.appendChild(link);   */
-
-        $(document).ready(function () {
-            $('.menuContainer').load('academia/menu.html');
-          });
-
-        $(document).ready(function () {
-          $('.footerContainer').load('academia/footer.html');
-        });
-    }
-
-    meterNavYFoot();
-
 //---------------------------------------------carrusel--------------------------------------------------------//
 function carousel(){
   let i = 0;
@@ -62,39 +32,4 @@ function carousel(){
 carousel();
 
 //------------------------------------------------------------------------------------------------------------//
-//-----------------------------------------nav----------------------------------------------------------------//
-/*
-let nav = document.getElementById('me'),
-body = document.body;
 
-nav.addEventListener('mouseover', function(e) {
-  body.className = body.className? '' : 'invisible';
-  e.preventDefault();
-});
-*/
-
-/*
-function invisibilidad(){
-  let nav = document.getElementsById("me");
-  nav.classList.toggle("invisible");
-}
-
-let nav = document.getElementsByTagName("nav");
-nav.addEventListener("mouseover",invisibilidad);
-*/
-/*
-$("me").hover(function() { $(this).removeClass("invisible"); }, function() { $(this).addClass("invisible"); });
-*/
-/*
-cambia = document.getElementById("prueba");
-cambia.addEventListener("mouseover", function(){document.getElementById("prueba").classList.add("invisible");});
-*/
-/*
-  cambia = document.getElementById("prueba");
-  cambia.onmouseover = function(){document.getElementById("prueba").classList.toggle("invisible");};
-*/
-
-//------------------------------------------------------------------------------------------------------------//
-//}
-});
-//}); lo del header y footer ahora se hacer con smarty

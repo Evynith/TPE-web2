@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Academia Home</title>
-    <base href="http://localhost//academia" target="_blank">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="academia/js/javascript.js"></script>
-    <link rel= stylesheet  href="academia/css/style.css">
-    
-</head>
+{include file="header.tpl"}
 
 <body>
 
-    <nav  class="menuContainer"></nav>
+    <nav  id="menuContainer">
+        {include file="nav.tpl"}
+    </nav>
 
     <div class="homeContainer">
 
@@ -30,18 +20,18 @@
             </div>
         </header>
 
-        <a href="https://google.com" class="btnNvl1 registroHome" >
-            <figure><img href="https://google.com" src="../academia/images/registro.png" alt="chica con mascara" class="imagenPromocional"></figure>
-            <h1 href="https://google.com">Logueate!</h1>
+        <a href="../academia/login" class="btnNvl1 registroHome" >
+            <figure><img href="../academia/login" src="../academia/images/registro.png" alt="chica con mascara" class="imagenPromocional"></figure>
+            <h1 href="../academia/login">Logueate!</h1>
         </a>
      
         <a class="btnNvl1 galeria">
             <figure><img src="images/" alt="chico en encuentro de la academia" class="imagenPromocional"></figure>
             <h1>Galeria</h1>
         </a>
-        <a class="btnNvl1 ranking">
-            <figure><img src="images/" alt="joven en el podio, primer puesto" class="imagenPromocional"></figure>
-            <h1>Ranking</h1>
+        <a href="../academia/cursos" class="btnNvl1 ranking">
+            <figure><img href="../academia/cursos" src="images/" alt="curso en el podio, primer puesto" class="imagenPromocional"></figure>
+            <h1 href="../academia/cursos">Ranking cursos</h1>
         </a>
 
         <aside>
@@ -57,16 +47,23 @@
                 <figcaption><h2>Video Promocional</h2></figcaption>
             </figure>
         </a>
-        <a class="btnNvl2 plan">
-            <h2>Cursos</h2>
-        </a>
-        <a class="btnNvl2 alumnos">
-            <h2>Alumnos</h2>
+        {if isset($userLevel) && ($userLevel == 1)} <a href="../academia/usuarios"</a> }
+            <a href="../academia/usuarios" class="btnNvl2 plan">
+                <h2 href="../academia/usuarios">Usuarios</h2>
+            </a>
+        {/if}
+        <a href="../academia/alumnos" class="btnNvl2 alumnos">
+            <h2 href="../academia/alumnos">Alumnos</h2>
         </a>
 
     </div>
 
-    <footer class="footerContainer"></footer>
+    <footer class="footerContainer">
+        {include file="footer.tpl"}
+    </footer>
 
-</body>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="./js/javascript.js"></script>
+
+    </body>
 </html>
