@@ -1,5 +1,7 @@
 <?php
 require_once("./Models/ComentariosModel.php");
+require_once("./api/JSONView.php");
+
 abstract class ApiController {
     protected $model;
     protected $view;

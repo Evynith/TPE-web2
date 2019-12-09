@@ -1,24 +1,16 @@
 <?php
-require_once("./Models/ComentariosModel.php");
 require_once("./api/ApiController.php");
-require_once("./api/JSONView.php");
 
-class ComentariosApiController extends ApiController{
+class ComentariosApiController extends ApiController{ //aca ya estan creados mi model, view y data. Los heredo
   
-
-    public function getComentarioss($params = null) {
+/* 
+    public function getComentarioss($params = null) { 
         $tareas = $this->model->GetComentarioss();
         $this->view->response($tareas, 200);
     }
-
-    /**
-     * Obtiene una tarea dado un ID
-     * 
-     * $params arreglo asociativo con los parámetros del recurso
-     */
-     public function getComentarios($params = null) {
-        // obtiene el parametro de la ruta
-        $id = $params[':ID'];
+ */
+     public function getComentarios($params = null) { 
+        $id = $params[':ID']; // obtiene el parametro de la ruta
         
         $tarea = $this->model->GetComentarios($id);
         
@@ -26,10 +18,21 @@ class ComentariosApiController extends ApiController{
             $this->view->response($tarea, 200);   
         } else {
             $this->view->response("No existe(n) comentarios para el usuario id={$id}", 404);
-        }
-    }
+    }   }
+   /*  public function getComentarios($alumno_id, $params = []) {  //una o varias
+        if (empty($params)){
+            $comentario_id = $params[':ID']; // obtiene el parametro de la ruta
+            
+            $comentarios = $this->model->GetComentarios($alumno_id);
+            $this->view->response($comentarios, 200);  
+        }else{
+            $comentario =  $this->model->GetComentario($comentario_id);
+            if (!empty($comentario)) {    // si no esta vacio...
+                $this->view->response($comentario, 200);  
+            }else{
+                $this->view->response("No existe(n) comentarios para el usuario id={$alumno_id}", 404);
+    }   }   } */
 
-    // TareasApiController.php
      public function deleteComment($params = []) {
         $comment_id = $params[':ID'];
         $comment = $this->model->GetComentario($comment_id);
@@ -42,15 +45,14 @@ class ComentariosApiController extends ApiController{
             $this->view->response("Task id=$comment_id not found", 404);
     }
 
-    // TareaApiController.php
    public function addComment($params = []) {     
-        $tarea = $this->getData(); // la obtengo del body
+        $comentario = $this->getData(); // la obtengo del body
 
         // inserta la tarea
-        $comentarioId = $this->model->InsertarComentario($tarea->id_alumno, $tarea->estrellas,$tarea->comentario);
+        $id_comentario = $this->model->InsertarComentario($comentario->id_alumno, $comentario->estrellas,$comentario->comentario);
 
         // obtengo la recien creada
-        $comentarioNuevo = $this->model->GetComentario($comentarioId);
+        $comentarioNuevo = $this->model->GetComentario($id_comentario);
         
         if ($comentarioNuevo)
             $this->view->response($comentarioNuevo , 200);
@@ -59,21 +61,20 @@ class ComentariosApiController extends ApiController{
 
     }
 
-    // TaskApiController.php
      public function updateComment($params = []) {
-        $comment_id = $params[':ID'];
-        $comment = $this->model->GetComentario($comment_id);
+        $id_comentario = $params[':ID'];
+        $comment = $this->model->GetComentario($id_comentario);
 
         if ($comment) {
             $body = $this->getData();
             $id_alumno = $body->id_alumno;
             $estrellas = $body->estrellas;
             $comentario = $body->comentario;
-            $tarea = $this->model->ActualizarComentario( $id_alumno, $estrellas, $comentario, $comment_id);
-            $this->view->response("Comentario id=$comment_id actualizada con exito", 200);
+            $tarea = $this->model->ActualizarComentario( $id_alumno, $estrellas, $comentario, $id_comentario);
+            $this->view->response("Comentario id=$id_comentario actualizada con exito", 200);
         }
         else 
-            $this->view->response("Comentario id=$comment_id not found", 404);
+            $this->view->response("Comentario id=$id_comentario not found", 404);
     }  
   
 

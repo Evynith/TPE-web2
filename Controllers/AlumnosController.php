@@ -25,7 +25,7 @@ class AlumnosController {
     public function GetAlumno($id){
         $this->AuthHelper->checkLoggedIn();
         $Alumno = $this->model->GetAlumno($id);
-        $this->view->DisplayAlumnos($Alumno);
+        $this->view->DisplayAlumno($Alumno);
     }
 
     public function InsertarAlumno(){
@@ -48,16 +48,16 @@ class AlumnosController {
         $Alumnos = $this->model->MostrarCursoAlumnos();
         $this->view->MostrarAlumnosCursos($Alumnos);
     }
-     /*   function subirImagen($id_alumno) {
+        function subirImagen($id_alumno) {
      if($_FILES['input_name']['tmp_name']) {
-        if($_FILES['input_name']['type'] == "image/jpg"  $_FILES['input_name']['type'] == "image/jpeg"  $_FILES['input_name']['type'] == "image/png") {
+        if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
             $this->model->subirImagen($_FILES['input_name']['tmp_name'], $id_alumno);
-            header("Location: " . URL_BASE);
+            header("Location: " . URL_ALUMNOS);
         } else {
             $this->view->DisplayAlumno($id_alumno, "Formato de imagen incorrecto.");
         }
     } else {
         $this->view->DisplayAlumno($id_alumno, "Elija una imagen.");
     }
-} */
 }
+} 

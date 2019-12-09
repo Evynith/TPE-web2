@@ -2,7 +2,7 @@
     
 <body>
      <nav  id="menuContainer">
-        {include file="nav.tpl"}
+        {include file= "nav.tpl"}
     </nav>
 
     <div class="Container">
@@ -34,18 +34,23 @@
             <input type="submit" value="actualizar" href= "actualizarcurso">
             <a href='actualizar'>actualizar</a>
         </form>
-        {* {if $alumno->imagen && $alumno->imagen != ''}
+
+        {include file= "comentarios.tpl"}
+
+         {if $alumno->imagen && $alumno->imagen != ''}
                 <img src="{$alumno->imagen}"/>
             {/if}
         <form class="imagenes" method="POST" action="subirImagen/{$alumno->id_alumno}" enctype="multipart/form-data">
                     <h5>Sube una imagen:</h5>
                     <input type="file" name="input_name" id="ImagenASubir">
                     <button class="btn btn-primary" type="submit">Subir imagen</button>
-                </form> *}
-    </div>
+                </form> 
         <footer class="footerContainer">
             {include file="footer.tpl"}
         </footer>
+        
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="./js/comentarios.js"></script>
 
 </body>
 </html>

@@ -32,7 +32,7 @@ class CursosController {
         $this->model->InsertarCurso($_POST['nombre'],$_POST['profesor'],$_POST['agno_correspondiente'],$_POST['descripcion']);
         $test = $_POST["nombre_u"];
         var_dump($test);
-        header("Location: " . URL_Cursos);
+        header("Location: " . URL_CURSOS);
     }
     public function ActualizarCurso(){
         $this->model->ActualizarCurso($_POST['nombre_u'],$_POST['id_curso_u']);
@@ -42,6 +42,6 @@ class CursosController {
 
     public function BorrarCurso($id){
         $this->model->BorrarCurso($id);
-        header("Location: " . URL_Cursos);
+        header("Location: " . URL_CURSOS);
     }
 }

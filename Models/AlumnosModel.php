@@ -34,7 +34,6 @@ class AlumnosModel {
         $sentencia->execute(array($nombre,$id));
     }
 
-
     public function BorrarAlumno($id){
         $sentencia = $this->db->prepare("DELETE FROM alumno WHERE id_alumno=?");
         $sentencia->execute(array($id));
@@ -46,7 +45,7 @@ class AlumnosModel {
         
         return $Alumnos;
     }
-    function subirImagen($imagen = null, $id_alumno) {
+     function subirImagen($imagen = null, $id_alumno) {
         $filepath = "";
         if ($imagen) 
             $filepath = $this->parsearImagen($imagen);
@@ -60,5 +59,5 @@ class AlumnosModel {
         $target = 'imagesusuario/' . uniqid() . '.jpg';
         move_uploaded_file($imagen, $target);
         return $target;
-    }
+    } 
 }

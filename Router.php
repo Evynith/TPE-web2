@@ -1,4 +1,5 @@
 <?php
+//implementado en la catedra!
 
 class Route {
     private $url;
@@ -39,7 +40,7 @@ class Route {
         $params = $this->params;
        
         (new $controller())->$method($params);
-    }
+    }   
 }
 
 class Router {
@@ -54,16 +55,15 @@ class Router {
         //$ruta->url //no compila!
         foreach ($this->routeTable as $route) {
             if($route->match($url, $verb)){
-                //TODO: ejecutar el controller//ejecutar el controller
+                //TODO: ejecutar el controller
                 // pasarle los parametros
                 $route->run();
                 return;
-            }
-        }
+        }   }
         //Si ninguna ruta coincide con el pedido y se configuró ruta por defecto.
-        if ($this->defaultRoute != null)
+        if ($this->defaultRoute != null){
             $this->defaultRoute->run();
-    }
+    }   }
     
     public function addRoute ($url, $verb, $controller, $method) {
         $this->routeTable[] = new Route($url, $verb, $controller, $method);

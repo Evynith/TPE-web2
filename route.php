@@ -89,12 +89,15 @@ $partesURL = explode('/', $action);
         case 'privilegio':
             $UsuariosController->ActualizarUsuario();
             break;
-       // case 'actualizarUsuario':
-        //    $UsuariosController->ActualizarUsuario();
-        //    break;
-        case 'contraseña':
-            $LoginController->ActualizarPass();
+       case 'actualizarUsuario':
+            $UsuariosController->ActualizarUsuario();
             break;
+       case 'subirImagen':
+            $Alumnoscontroller->subirImagen($partesURL[1]); 
+            break;
+       // case 'contraseña':
+        //    $LoginController->ActualizarPass();
+        //    break;
         default:
             $IndexController->MostrarIndex();
             break;

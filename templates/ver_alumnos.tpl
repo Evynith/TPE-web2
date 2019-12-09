@@ -48,6 +48,8 @@
         <footer class="footerContainer">
             {include file="footer.tpl"}
         </footer>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="./js/comentarios.js"></script>
 
 </body>
 </html>

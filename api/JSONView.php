@@ -1,20 +1,15 @@
 <?php
 
 class JSONView {
-
-    /**
-     * Convierte los datos de la respuesta a JSON y los imprime.
-     */
+// esta vista es comun para todos los servicios
+ 
     public function response($data, $status) {
         header("Content-Type: application/json");
         header("HTTP/1.1 " . $status . " " . $this->_requestStatus($status));
-        echo json_encode($data);
+        echo json_encode($data); //transforma los datos en JSON
     }
 
-    /**
-     * Devuelve un mensaje de error dado un código de error HTTP.
-     */
-    private function _requestStatus($code){
+    private function _requestStatus($code){ //segun el codigo recibido retorna un error
         $status = array(
           200 => "OK",
           404 => "Not found",

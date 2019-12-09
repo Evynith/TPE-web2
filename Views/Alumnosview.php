@@ -24,6 +24,11 @@ class AlumnosView {
         $this->smarty->assign('lista_Alumnos',$Alumnos);
         $this->smarty->display('templates/ver_alumnos.tpl');
     }
+    public function DisplayAlumno($Alumno){
+        $this->smarty->assign('titulo','Alumno');
+        $this->smarty->assign('lista_Alumnos',$Alumno);
+        $this->smarty->display('templates/ver_alumnoUnico.tpl');
+    }
     public function MostrarAlumnosCursos($Alumnos){
         $this->smarty->assign('titulo',"Mostrar Cursos con sus alumnos");
         $this->smarty->assign('lista_Alumnos',$Alumnos);
@@ -38,5 +43,4 @@ class AlumnosView {
 
         $this->Smarty->display("templates/noEncontrado.tpl");
     } */
-}
 }
