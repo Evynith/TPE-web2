@@ -59,7 +59,9 @@ async function addComentario(){
             });
          
         let respuesta = await response.json();
-        if (respuesta){ return respuesta;}
+        if (respuesta){ 
+            getComentarios(); 
+            return respuesta;}
     }catch (error) {
         console.log(error);
 }   }
@@ -73,7 +75,9 @@ async function deleteComentario(id_comentario){
         });
     
         let respuesta = await contenido.json();
-        if (respuesta){ return respuesta;}
+        if (respuesta){ 
+            getComentarios(); 
+            return respuesta;}
         else {console.log(error);}
  } 
 
