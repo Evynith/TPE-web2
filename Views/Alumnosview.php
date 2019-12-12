@@ -25,8 +25,16 @@ class AlumnosView {
         $this->smarty->display('templates/alumnos.tpl');
     }
 
-    public function DisplayAlumno($Alumno){
+   /*  public function DisplayAlumno($Alumno){
         $this->smarty->assign('titulo','Alumno');
+        $this->smarty->assign('lista_Alumnos',$Alumno);
+
+        $this->smarty->display('templates/alumno.tpl');
+    } */
+
+    public function DisplayAlumnoImg($Alumno, $imagenes = null){
+        $this->smarty->assign('titulo','Alumno');
+        $this->smarty->assign('lista_imagenes',$imagenes);
         $this->smarty->assign('lista_Alumnos',$Alumno);
 
         $this->smarty->display('templates/alumno.tpl');
@@ -39,11 +47,11 @@ class AlumnosView {
         $this->smarty->display('templates/alumnosCurso.tpl');
     }
 
-    public function MostrarImagenes($imagenes){
+    /* public function MostrarImagenes($imagenes){
         $this->smarty->assign('lista_imagenes',$imagenes);
 
         $this->smarty->display('templates/ver_imagenes.tpl');
-    }
+    } */
     
     /*     
     function mostrarNoEncontrado($id_alumno, $error = "") {

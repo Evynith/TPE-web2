@@ -25,7 +25,8 @@ class AlumnosController {
     public function GetAlumno($id){
         $this->AuthHelper->checkLoggedIn();
         $Alumno = $this->model->GetAlumno($id);
-        $this->view->DisplayAlumno($Alumno);
+        $imagenes= $this->model->TraerImagenes($id);
+        $this->view->DisplayAlumnoImg($Alumno,$imagenes);
     }
 
     public function InsertarAlumno(){
@@ -63,9 +64,8 @@ class AlumnosController {
                 $this->view->DisplayAlumno($id_alumno, "Elija una imagen.");
     }   }
 
-    public function MostrarImagenes($id) {
+    /* public function MostrarImagenes($id) {
         $imagenes= $this->model->TraerImagenes($id);
         $this->view->MostrarImagenes($imagenes);
-
-    }
+    } */
 } 

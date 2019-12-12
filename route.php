@@ -40,7 +40,7 @@ $partesURL = explode('/', $action);
             break;
         case 'alumno' :
             $AlumnosController->getAlumno($partesURL[1]);
-            $AlumnosController->MostrarImagenes($partesURL[1]);
+            //$AlumnosController->MostrarImagenes($partesURL[1]);
             break;
         case 'borrar':
             $AlumnosController->BorrarAlumno($partesURL[1]);

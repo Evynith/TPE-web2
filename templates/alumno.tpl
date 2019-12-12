@@ -7,7 +7,7 @@
         </nav>
 
         <section class= "datosAlumno">
-            <section>
+            <section class= "alumno">
                 {foreach from=$lista_Alumnos item=alumno}
                     <h1> {$alumno->nombre} {$alumno->apellido} id: {$alumno->id_alumno} </h1>
                     <p> Habilidad: {$alumno->habilidad}</p>
@@ -21,11 +21,10 @@
                 {/foreach}
             </section>
 
-            {if isset($imagenes)}
-                <section class="imagenes">
+            {if isset($lista_imagenes)}
                     {include file= "ver_imagenes.tpl"}
-                </section>
             {/if}
+
         </section>
 
         <section>
@@ -33,7 +32,7 @@
                 <form class="imagenes" method="POST" action="subirImagen/{$alumno->id_alumno}" enctype="multipart/form-data">
                     <h5>Sube una imagen:</h5>
                     <input type="file" name="input_name" id="ImagenASubir">
-                    <button class="btn btn-primary" type="submit">Subir imagen</button>
+                    <button type="submit">Subir imagen</button>
                 </form> 
             {/if}
 
@@ -56,7 +55,7 @@
             {/if}
         </section>
 
-        <section>
+        <section class= "comentarios">
             {include file= "vue/comentariosList.tpl"}
         </section>
 
