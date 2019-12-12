@@ -5,7 +5,7 @@
      <ul>
        <li v-for="coment in comentarios">
             <span> {{ coment.comentario }}  {{coment.estrellas}}   {{coment.id_alumno}}  </span> 
-              <div v-if= "admin == true"> <button v-on:click="deleteFunction(coment.id_comentario)" id="btn_eliminar">eliminar</button> </div>
+              <div v-if= "admin == true"> <a v-on:click="deleteFunction(coment.id_comentario)" id="btn_eliminar" class ="BtnA" >eliminar</a> </div>
        </li> 
     </ul>
 

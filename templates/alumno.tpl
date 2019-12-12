@@ -56,6 +56,7 @@
         </section>
 
         <section class= "comentarios">
+            <h2> Comentarios </h2>
             {include file= "vue/comentariosList.tpl"}
         </section>
 

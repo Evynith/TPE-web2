@@ -8,7 +8,7 @@
 
         {foreach from=$usuarios item=usuario}
 
-            <li>{$usuario->email}: {$usuario->password} : {$usuario->pregunta} : {$usuario->respuesta} : {$usuario->nivel}- <a href='borrarUsuario/{$usuario->id}'>Borrar</a> </li> 
+            <li>{$usuario->email}: {$usuario->password} : {$usuario->pregunta} : {$usuario->respuesta} : {$usuario->nivel}- <a class ="BtnA" href='borrarUsuario/{$usuario->id}'>Borrar</a> </li> 
 
         {/foreach}
 

@@ -1,21 +1,21 @@
 <div class="aMostrar">
     <div class="barraNav">
         <figure class="logo">
-            <img src="" alt="Academia de heroes" class="logo">
+            <a href="../academia/index"> <img href="../academia/index" alt="Academia de heroes" class="logo"></a>
         </figure>
 
         <ul class="navPC">
-            <li><a class="btnNav" href="registro"> Registro</a></li>
-            <li><a class="btnNav" href="materias"> Cursos</a></li>
+            <li><a class="btnNav" href="../academia/registro"> Registro</a></li>
+            <li><a class="btnNav" href="../academia/cursos"> Cursos</a></li>
             <li><a class="btnNav" href="contacto"> Quiénes somos</a></li>
-            <li>
-                {if isset($userName)}
-                    <div class="btnNav">
-                        <span> {$userName} </span>
-                        <a class="btnNav" href="../academia/logout">LOGOUT</a>
-                    </div>
-                {/if}
-            </li>
+            
+            {if isset($userName)}
+                <li>
+                    <span> {$userName} </span>
+                    <a class="btnNav" href="../academia/logout">LOGOUT</a>
+                </li>
+            {/if}
+            
 
         </ul>
 

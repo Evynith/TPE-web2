@@ -7,7 +7,7 @@
         </nav>
 
         {foreach from=$lista_Cursos item=curso}
-            <li><a href='curso/{$curso->id_curso}'> {$curso->nombre}, {$curso->profesor} </a> {if isset($userLevel) && ($userLevel == 1)}<a href='borrarcurso/{$curso->id_curso}'>Borrar</a>{/if} </li>
+            <li><a href='curso/{$curso->id_curso}'> {$curso->nombre}, {$curso->profesor} </a> {if isset($userLevel) && ($userLevel == 1)}<a class="BtnA" href='borrarcurso/{$curso->id_curso}'>Borrar</a>{/if} </li>
         {/foreach}
 
         {if isset($userLevel) && ($userLevel == 1)}

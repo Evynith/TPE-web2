@@ -1,29 +1,38 @@
 /*-------------------------------------------------general-----------------------------------------------*/
 * {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #51ff00;
     list-style:none;
+    color: #ffffff;
     margin: 0;
     padding: 0;
 }
 html,body{
     width: 100%;
     height: 100%;
+    font-size: 1.2rem;
 }
 body{
-    background: black;
+    background: #141A26;
 }
 a:link{ 
     text-decoration:none; 
 } 
 footer a:visited {
-    color: #003fff;
+    color: #ffffff;
 }
 .inexistente{
     display: none;
 }
 .invisible{
     visibility: hidden;
+}
+input,select{
+    background: #141A26;
+    border-color: #D99543;
+    outline: #F2B950;
+}
+.BtnA{
+    border: 1px solid #F2B950;
 }
 /*------------------------------------------------tabla-------------------------------------------*/
 table{
@@ -52,7 +61,7 @@ thead{
   }
 .barraNav{
     height: 100%;
-    background: rgb(74, 74, 255);
+    background:  #D99543;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -66,12 +75,12 @@ thead{
 }
 .btnNav{  
     color: #ffffff;
-    background-color: rgb(74, 74, 255);
+    background-color:#D99543;
     margin: 0 3px;
 }
 .btnNav:hover{
-    background: rgb(158, 185, 233);
-    border-radius: 15px;
+    background: #F2B950;
+    /*border-radius: 15px;*/
 }
 .navMovil{
     width: 25%;
@@ -79,15 +88,15 @@ thead{
     position: absolute;
     top: 7%; 
     right: 70%;
-    background: rgb(74, 74, 255);
+    background: #D99543;
 }
 .navMovil a{
     color: #ffffff;
 }
 /*----------------------------------------footer---------------------------------------------------------*/
 footer{
-    background-color: rgb(243, 243, 243);
-    border-top: 5px solid rgb(228, 228, 228);    
+    background-color: #244040;
+    border-top: 3px solid  #141A26;
     clear: both;
     width: 100%;
     height: 10vh;
@@ -181,6 +190,7 @@ aside h2{
     display: block;
     overflow-y: scroll;
 }
+
 .box::-webkit-scrollbar {
     -webkit-appearance: none;
 }
@@ -198,9 +208,9 @@ aside h2{
 }
 
 .box::-webkit-scrollbar-thumb {
-    background-color: #2e2e2e;
+    background-color: #060541;
     border-radius: 20px;
-    border: 2px solid #696969;
+    border: 2px solid #F2B950;
 }
 
 .box::-webkit-scrollbar-track {
@@ -257,16 +267,24 @@ aside h2{
     .ranking { grid-area: ranking; }
 
     .registroHome{
-        background: #39af29;
+        background: #95B8BF;
     }
     aside{
-        background: #747474;
+        background: #D99543;
+        border-radius:20px;
+    }
+    .btnNvl1{
+        background-color: #95B8BF;
+        border-radius: 30px;
+        margin: 5px;
     }
     .btnNvl2{
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: bisque;
+        background-color: #95B8BF;
+        border-radius: 30px;
+        margin: 7px;
     }
    /*--------ranking------------------*/
    /* .rankingContainer figure{
@@ -290,8 +308,8 @@ aside h2{
     /*--------alumno-----------------------*/
     @supports(object-fit: cover){
         .datosAlumno .imagenes img{
-            height: 40%;
-            width:40%;
+            height: 100%;
+            width:100%;
             object-fit: cover;
             object-position: left;
         }
@@ -299,14 +317,15 @@ aside h2{
     .datosAlumno{
         display: grid;
         margin-top: 3%;
-        height: 40vh;
-        grid-template-columns: 60% 40%;
+        height: 35vh;
+        grid-template-columns: 70% 30%;
     }
     .datosAlumno .imagenes{
-        overflow: scroll;
+        overflow: auto;
+        margin-right: 4%;
     }
     #template_vue_comentarios{
-        overflow: scroll;
+        overflow: auto;
         height: 30vh;
     }
     .alumno{
@@ -314,6 +333,32 @@ aside h2{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+
+    .datosAlumno .imagenes::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+    #template_vue_comentarios::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+    
+    .datosAlumno .imagenes:-webkit-scrollbar-thumb {
+        background-color: #060541;
+        border-radius: 20px;
+        border: 2px solid #F2B950;
+    }
+    #template_vue_comentarios::-webkit-scrollbar-thumb {
+        background-color: #060541;
+        border-radius: 20px;
+        border: 2px solid #F2B950;
+    }
+    
+    .datosAlumno .imagenes::-webkit-scrollbar-track {
+        border-radius: 10px;  
+    }
+    #template_vue_comentarios::-webkit-scrollbar-track {
+        border-radius: 10px;  
     }
 
 }

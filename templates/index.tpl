@@ -29,7 +29,7 @@
         </a>
         <a href="../academia/cursos" class="btnNvl1 ranking">
             <figure><img href="../academia/cursos" src="images/" alt="curso en el podio, primer puesto" class="imagenPromocional"></figure>
-            <h1 href="../academia/cursos">Ranking cursos</h1>
+            <h1 href="../academia/cursos">Cursos</h1>
         </a>
 
         <aside>
@@ -41,8 +41,8 @@
 
         <a class="btnNvl2 video">
             <figure>
-                <img src="" alt="Video de publicidad de la academia" class="imagenPromocional">
-                <figcaption><h2>Video Promocional</h2></figcaption>
+                <img src="" class="imagenPromocional">
+                <figcaption><h2>Promocional</h2></figcaption>
             </figure>
         </a>
         {if isset($userLevel) && ($userLevel == 1)}
