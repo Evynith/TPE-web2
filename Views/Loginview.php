@@ -21,10 +21,10 @@ class Loginview {
         $this->smarty->assign('error', $error);
         $this->smarty->display('templates/login.tpl');
     }
-    public function DisplayPass($error = null){
+    
+    public function DisplayPass($mensaje = null){
         $this->smarty->assign('titulo',"Login");
-        $this->smarty->assign('error', $error);
+        $this->smarty->assign('mensaje', $mensaje);
         $this->smarty->display('templates/pass.tpl');
     }
-
 }

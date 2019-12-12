@@ -1,5 +1,4 @@
 <?php
-
 //engloba toda la funcio0nalidad de sesiones para poder usarlas en cada controlador sin repetir codigo
 class AuthHelper {
 

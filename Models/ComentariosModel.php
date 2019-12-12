@@ -15,6 +15,7 @@ class ComentariosModel {
         
         return $ComentariosAlumno;
     }
+
     public function GetComentario($id_comentario){
         $sentencia = $this->db->prepare( "SELECT * FROM comentarios WHERE id_comentario = ?");
         $sentencia->execute(array($id_comentario));
@@ -22,26 +23,29 @@ class ComentariosModel {
         
         return $comentario;
     }
-/*     public function GetComentarioss(){
-        $sentencia = $this->db->prepare( "select * from comentarios");
-        $sentencia->execute();
-        $Alumnos = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        
-        return $Alumnos;
-    } */
+
     public function BorrarComentario($id_comentario){
         $sentencia = $this->db->prepare("DELETE FROM comentarios WHERE id_comentario=?");
         $sentencia->execute(array($id_comentario));
     }
+
     public function InsertarComentario($id_alumno,$estrellas,$comentario){
         $sentencia = $this->db->prepare("INSERT INTO comentarios(id_alumno,estrellas,comentario) VALUES(?,?,?)");
         $sentencia->execute(array($id_alumno,$estrellas,$comentario));
 
         return $this->db->lastInsertId();
     }
+    
     public function ActualizarComentario($id_alumno,$estrellas,$comentario, $id){
         $sentencia = $this->db->prepare("UPDATE comentarios SET id_alumno=?, estrellas=?, comentario=? WHERE id_comentario=?");
         $sentencia->execute(array($id_alumno,$estrellas,$comentario,$id));
     }
 
+    /*     public function GetComentarioss(){
+        $sentencia = $this->db->prepare( "select * from comentarios");
+        $sentencia->execute();
+        $Alumnos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        
+        return $Alumnos;
+    } */
 }

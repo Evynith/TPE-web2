@@ -1,11 +1,10 @@
 {include file="header.tpl"}
     
 <body>
-     <nav  id="menuContainer">
-        {include file="nav.tpl"}
-    </nav>
-
     <div class="Container">
+        <nav  id="menuContainer">
+            {include file="nav.tpl"}
+        </nav>
 
         {foreach from=$usuarios item=usuario}
 
@@ -19,10 +18,9 @@
                 <input type="number" name="id_usuario" placeholder="id usuario">
                 <input type="submit" value="actualizar" href= "actualizarUsuario">
             </form>
-    </div>
         <footer class="footerContainer">
             {include file="footer.tpl"}
         </footer>
-
+    </div>
 </body>
 </html>

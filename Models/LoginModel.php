@@ -16,8 +16,9 @@ class LoginModel {
         
         return $password;
     }
+    
     public function ActualizarUsuario($password,$user){ 
-        $sentencia = $this->db->prepare("UPDATE usuario SET password=? WHERE user=?");
+        $sentencia = $this->db->prepare("UPDATE usuario SET password=? WHERE id=?");
         $sentencia->execute(array($password,$user));
     }
 }

@@ -15,6 +15,7 @@ class Registroview {
         $this->smarty->assign('BASE_URL', BASE_URL);
         $this->smarty->assign('userName', $this->userName);
     }
+    
     public function DisplayRegistro($mensaje = null){
         $this->smarty->assign('titulo',"Registro");
         $this->smarty->assign('mensaje', $mensaje);

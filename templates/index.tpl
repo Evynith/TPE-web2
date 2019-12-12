@@ -1,11 +1,9 @@
 {include file="header.tpl"}
 
 <body>
-
     <nav  id="menuContainer">
         {include file="nav.tpl"}
     </nav>
-
     <div class="homeContainer">
 
         <header>
@@ -47,7 +45,7 @@
                 <figcaption><h2>Video Promocional</h2></figcaption>
             </figure>
         </a>
-        {if isset($userLevel) && ($userLevel == 1)} <a href="../academia/usuarios"</a> }
+        {if isset($userLevel) && ($userLevel == 1)}
             <a href="../academia/usuarios" class="btnNvl2 plan">
                 <h2 href="../academia/usuarios">Usuarios</h2>
             </a>
@@ -55,9 +53,7 @@
         <a href="../academia/alumnos" class="btnNvl2 alumnos">
             <h2 href="../academia/alumnos">Alumnos</h2>
         </a>
-
     </div>
-
     <footer class="footerContainer">
         {include file="footer.tpl"}
     </footer>

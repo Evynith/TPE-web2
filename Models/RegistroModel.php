@@ -13,15 +13,15 @@ class RegistroModel {
         $sentencia->execute(array($username,$password,$pregunta,$respuesta,2)); //nivel 1 es para administradores, nivel 2 es para usuarios comunes
     }
     function User($username){
-        /* $sentencia = $this->db->prepare("SELECT * FROM usuario WHERE email = ?");
+        $sentencia = $this->db->prepare( "SELECT email FROM usuario WHERE email = ?");
         $sentencia->execute(array($username));
-        $user = $sentencia->fetchAll(PDO::FETCH_OBJ);
-        
-        return $user; */
-        
-    $sentencia = $this->db->prepare( "SELECT email FROM usuario WHERE email = ?");
-    $sentencia->execute(array($username));
 
-    return !!$sentencia->fetch(PDO::FETCH_ASSOC);
+        return !!$sentencia->fetch(PDO::FETCH_ASSOC);
+    }
+    function UserPass($username){
+        $sentencia = $this->db->prepare( "SELECT email,id,pregunta,respuesta FROM usuario WHERE email = ?");
+        $sentencia->execute(array($username));
+
+        return $sentencia->fetch(PDO::FETCH_OBJ);
     }
 }

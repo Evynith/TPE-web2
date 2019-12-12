@@ -16,7 +16,7 @@ define("URL_LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"
 define("URL_LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
 define("URL_USUARIOS", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
 
-$Alumnoscontroller = new AlumnosController();
+$AlumnosController = new AlumnosController();
 $CursosController = new CursosController();
 $LoginController = new LoginController();
 $IndexController = new IndexController();
@@ -33,22 +33,26 @@ $partesURL = explode('/', $action);
     switch ($partesURL[0]) { 
         
         case 'alumnos' :
-            $Alumnoscontroller->GetAlumnos();
+            $AlumnosController->GetAlumnos();
             break;
         case 'insertar' :
-            $Alumnoscontroller->InsertarAlumno();
+            $AlumnosController->InsertarAlumno();
             break;
         case 'alumno' :
-            $Alumnoscontroller->getAlumno($partesURL[1]);
+            $AlumnosController->getAlumno($partesURL[1]);
+            $AlumnosController->MostrarImagenes($partesURL[1]);
             break;
         case 'borrar':
-            $Alumnoscontroller->BorrarAlumno($partesURL[1]);
+            $AlumnosController->BorrarAlumno($partesURL[1]);
             break;
-        case 'actualizar':
-            $Alumnoscontroller->ActualizarAlumno();
+        case 'actualizarAlumno':
+            $AlumnosController->ActualizarAlumno();
             break;
         case 'MostrarCursoAlumnos':
-            $Alumnoscontroller->MostrarCursoAlumnos();
+            $AlumnosController->MostrarCursoAlumnos();
+            break;
+        case 'mostrarAlumnosCurso':
+            $CursosController->GetAlumnosCurso($partesURL[1]);
             break;
         case 'cursos':
             $CursosController->GetCursos();
@@ -62,7 +66,7 @@ $partesURL = explode('/', $action);
         case 'borrarcurso':
             $CursosController->BorrarCurso($partesURL[1]);
             break;
-        case 'actualizarcurso':
+        case 'actualizarCurso':
             $CursosController->ActualizarCurso();
             break;
         case 'login':
@@ -95,9 +99,12 @@ $partesURL = explode('/', $action);
        case 'subirImagen':
             $Alumnoscontroller->subirImagen($partesURL[1]); 
             break;
-       // case 'contraseña':
-        //    $LoginController->ActualizarPass();
-        //    break;
+       case 'contraseña':
+            $LoginController->mostrarPass();
+            break;
+        case 'actualizarPass':
+            $LoginController->ActualizarPass();
+            break;
         default:
             $IndexController->MostrarIndex();
             break;

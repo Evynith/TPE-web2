@@ -3,14 +3,14 @@ let app= new Vue({
     data: {
         subtitle: "comentarios huehuehue",
         comentarios: [],
-        auth: true,
         mod: false,
         comentario: null,
         estrellas: null,
         id_alumno: null,
         comentarioMod: null,
         estrellasMod: null,
-        id_alumnoMod: null
+        id_alumnoMod: null,
+        admin: true,
     },
     methods: {
         checkForm: function(e){
@@ -22,15 +22,17 @@ let app= new Vue({
     }   }
 });
 
-async function getComentarios(){
-    app.auth = true; //activar carga
-
+function porcionCodigo(int){
     let ubicacion = location.pathname;
     console.log(ubicacion);
     let porciones = ubicacion.split('/');
-    let id_alumno = porciones[3];
+    let id_alumno = porciones[int];
     console.log(id_alumno);
+    return id_alumno
+}
 
+async function getComentarios(){
+    let id_alumno = porcionCodigo(3);
     let contenido = await fetch('api/comentarios/' + id_alumno,
         {
         "method": "GET",
@@ -40,17 +42,17 @@ async function getComentarios(){
     let comentarios = await contenido.json(); //error si no paso nada
     console.log(comentarios);
     app.comentarios = comentarios;
-    app.auth = false;
  } 
 
 async function addComentario(){
+    let alumno_id = porcionCodigo(3);
+    let data = {
+        comentario : document.querySelector("input[name = comentario]").value,
+        estrellas : document.querySelector("input[name = estrellas]").value,
+        id_alumno : parseInt(alumno_id),
+    }
+    console.log(data);
     try {
-        let data = {
-            comentario : document.querySelector("input[name = comentario]").value,
-            estrellas : document.querySelector("input[name = estrellas]").value,
-            id_alumno : document.querySelector("input[name = id_alumno]").value,
-        }
-        console.log(data);
         let response = await fetch('api/comentarios/', 
             {
             method : "POST",
@@ -67,21 +69,20 @@ async function addComentario(){
 }   }
 
 async function deleteComentario(id_comentario){
-
     let contenido = await fetch('api/comentarios/' + id_comentario,
         {
         "method": "DELETE",
         "headers": { "Content-Type": "application/json" },
         });
     
-        let respuesta = await contenido.json();
-        if (respuesta){ 
-            getComentarios(); 
-            return respuesta;}
-        else {console.log(error);}
+    let respuesta = await contenido.json();
+    if (respuesta){ 
+        getComentarios(); 
+        return respuesta;}
+    else {console.log(error);}
  } 
 
-getComentarios(); //hacer que actualice cada vez que haya una modificacion en la pagina
+getComentarios();
 let agrega = document.querySelector("#form_comentarios")
 if(agrega){ agrega.addEventListener('Submit',addComentario);}
 let elimina = document.querySelector("#btn_eliminar")

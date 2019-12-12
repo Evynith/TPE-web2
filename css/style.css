@@ -25,6 +25,20 @@ footer a:visited {
 .invisible{
     visibility: hidden;
 }
+/*------------------------------------------tabla-------------------------------------------*/
+table{
+    border-collapse: collapse;
+}
+th,td{
+    border: solid #005BBB;
+    padding: 6px;
+}
+thead{
+    background-color: #005BBB;
+    color: white;
+    border-bottom: #003fff 3px solid;
+}
+/*---------------------------------------------------------------------------------------------------*/
 /*-------------------------------------------------nav-----------------------------------------------*/
 .logo{
     width: 40%;
@@ -207,32 +221,41 @@ aside h2{
         "article1 article1 article1 article1 article1 article1 aside aside" 
         "galeria galeria galeria ranking ranking ranking aside aside" 
         "video video plan plan graduados graduados aside aside";
-      }
-      
-      header { grid-area: header; }
-      .registroHome { grid-area: article1; }
-      aside { grid-area: aside; }
-      .video { grid-area: video; }
-      .plan { grid-area: plan; }
-      .alumnos { grid-area: graduados; }
-      .galeria { grid-area: galeria; }
-      .ranking { grid-area: ranking; }
+    }
+    
+    header { grid-area: header; }
+    .registroHome { grid-area: article1; }
+    aside { grid-area: aside; }
+    .video { grid-area: video; }
+    .plan { grid-area: plan; }
+    .alumnos { grid-area: graduados; }
+    .galeria { grid-area: galeria; }
+    .ranking { grid-area: ranking; }
 
-      nav{
-          height: 5%;
-      }
-     .barraNav{
-         visibility: hidden;
-     }
-      .aMostrar:hover .barraNav{
+    .Container {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+
+    nav{
+        height: 5%;
+    }
+    .barraNav{
+        visibility: hidden;
+    }
+    .aMostrar:hover .barraNav{
         visibility: visible;
-      }
-      .registroHome{
-          background: #39af29;
-      }
-      aside{
+    }
+    .registroHome{
+        background: #39af29;
+    }
+    aside{
         background: #747474;
-       }
+    }
     .btnNvl2{
         display: flex;
         justify-content: center;
@@ -241,11 +264,11 @@ aside h2{
     }
    .navMovil{
        display: none;
-   }
-   footer{
+    }
+    footer{
        display: flex;
        flex-direction: row;
-   }
+    }
    /*--------ranking---------------------------------------------*/
    .rankingContainer figure{
        background: #39af29;
@@ -265,4 +288,16 @@ aside h2{
     .img4 { grid-area: img4; }
     .img5 { grid-area: img5; }
 }
+ /*--------alumno---------------------------------------------*/
+.datosAlumno{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.datosAlumno .imagenes img{
+    height: 20%;
+    width: 20%;
+}
+
 /*--------------------------------------------MOVIL--------------------------------------------*/

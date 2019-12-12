@@ -24,6 +24,14 @@ class CursosModel {
         return $curso;
     }
 
+    public function MostrarAlumnosCurso($id_curso){
+        $sentencia = $this->db->prepare("SELECT curso.nombre as curso, alumno.nombre as alumno_nombre, alumno.apellido as alumno_apellido, alumno.id_alumno as alumno_id FROM alumno JOIN curso ON curso.id_curso = alumno.id_curso WHERE curso.id_curso = ?");
+        $sentencia->execute(array($id_curso));
+        $Alumnos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+        
+        return $Alumnos;
+    }
+
     public function InsertarCurso($nombre,$profesor,$agno_correspondiente,$descripcion){
         $sentencia = $this->db->prepare("INSERT INTO curso(nombre,profesor,agno_correspondiente,descripcion) VALUES(?,?,?,?)");
         var_dump($nombre);

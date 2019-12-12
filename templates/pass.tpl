@@ -1,38 +1,31 @@
-
 {include file="header.tpl"}
 
 <body>
-     <nav  id="menuContainer">
-        {include file="nav.tpl"}
-    </nav>
+    <div class="Container"> 
 
-    <div class="Container">
+        <nav  id="menuContainer">
+            {include file="nav.tpl"}
+        </nav>
 
-        {if $error}
-            <div class="alert">
-                {$error}
-            </div>
+        {if $mensaje}
+            {$mensaje}
         {/if}
-        <form action="contraseña" method="POST">
+
+        <form action="actualizarPass" method="POST">
             <input type="text" name="usuarioPerdido" placeholder="Usuario">
-            <input type="submit" value="enviar">
+            <select name="selectPass"  placeholder="Elige una pregunta">
+                <option value="Como se llamó tu primer mascota?">Como se llamó tu primer mascota?</option> 
+                <option value="Cual fue la calle de tu primer casa?" selected>Cual fue la calle de tu primer casa?</option>
+                <option value="Como se llama tu mejor amigo?">Como se llama tu mejor amigo?</option>
+            </select>
+            <input type="text" name="respuestaPass" placeholder="Tu respuesta">
+            <input type="password" name="nuevaPass" placeholder="Nueva contraseña">
+            <input type="submit" value="Actualizar">
         </form>
-
-        {if $nueva}
-            <div class="alert">
-                {$nueva}
-            </div>
-             <form action="nuevaContraseña" method="POST">
-                <input type="password" name="nuevaPass" placeholder="Nueva contraseña">
-                <input type="submit" value="enviar">
-            </form>
-        {/if}
-
+        
+        <footer class="footerContainer">
+            {include file="footer.tpl"}
+        </footer>
     </div>
-
-    <footer class="footerContainer">
-        {include file="footer.tpl"}
-    </footer>
-
 </body>
 </html>
