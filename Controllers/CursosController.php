@@ -25,10 +25,15 @@ class CursosController {
 
     public function GetCurso($id){
         $this->AuthHelper->checkLoggedIn();
-        $curso = $this->model->GetCurso($id);
-        $alumnos = $this->model->mostrarAlumnosCurso($id);
-        $this->view->DisplayCurso($curso,$alumnos);
-    }
+        $existe = $this->model->Curso($id);
+
+        if ($existe == true){
+            $curso = $this->model->GetCurso($id);
+            $alumnos = $this->model->mostrarAlumnosCurso($id);
+            $this->view->DisplayCurso($curso,$alumnos);
+        } else {
+            header("Location: " . URL_CURSOS);
+    }   }
 
     public function InsertarCurso(){
         $this->model->InsertarCurso($_POST['nombre'],$_POST['profesor'],$_POST['agno_correspondiente'],$_POST['descripcion']);
@@ -38,9 +43,10 @@ class CursosController {
     }
 
     public function ActualizarCurso(){
-        $nombre = $_POST['nombre_u'];
+        $seleccion = $_POST['seccion_u'];
+        $dato = $_POST['dato_u'];
         $id = $_POST['id_curso_u'];
-        $this->model->ActualizarCurso($nombre,$id);
+        $this->model->ActualizarCurso($seleccion,$dato,$id);
         //$test = $_POST["nombre_u"];
         //var_dump($test);
         $this->GetCurso($id);

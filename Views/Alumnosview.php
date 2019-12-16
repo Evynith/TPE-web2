@@ -18,35 +18,37 @@ class AlumnosView {
         $this->smarty->assign('userLevel', $this->userLevel); 
     }
 
-    public function DisplayAlumnos($Alumnos){
+    public function DisplayAlumnos($Alumnos, $mensaje = null){
         $this->smarty->assign('titulo',"Mostrar Alumnos");
         $this->smarty->assign('lista_Alumnos',$Alumnos);
+        $this->smarty->assign('mensaje',$mensaje);
 
         $this->smarty->display('templates/alumnos.tpl');
     }
 
-   /*  public function DisplayAlumno($Alumno){
-        $this->smarty->assign('titulo','Alumno');
-        $this->smarty->assign('lista_Alumnos',$Alumno);
-
-        $this->smarty->display('templates/alumno.tpl');
-    } */
-
-    public function DisplayAlumnoImg($Alumno, $imagenes = null){
+    public function DisplayAlumnoImg($Alumno, $imagenes = null, $mensaje = null){
         $this->smarty->assign('titulo','Alumno');
         $this->smarty->assign('lista_imagenes',$imagenes);
         $this->smarty->assign('lista_Alumnos',$Alumno);
+        $this->smarty->assign('mensaje',$mensaje);
 
         $this->smarty->display('templates/alumno.tpl');
     }
-
+    
     public function MostrarAlumnosCursos($Alumnos){
         $this->smarty->assign('titulo',"Alumnos con su curso");
         $this->smarty->assign('lista_Alumnos',$Alumnos);
-
+        
         $this->smarty->display('templates/alumnosCurso.tpl');
     }
-
+    
+    /*  public function DisplayAlumno($Alumno){
+         $this->smarty->assign('titulo','Alumno');
+         $this->smarty->assign('lista_Alumnos',$Alumno);
+ 
+         $this->smarty->display('templates/alumno.tpl');
+     } */
+     
     /* public function MostrarImagenes($imagenes){
         $this->smarty->assign('lista_imagenes',$imagenes);
 

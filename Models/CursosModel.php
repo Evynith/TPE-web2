@@ -8,6 +8,13 @@ class CursosModel {
         $this->db = new PDO('mysql:host=localhost;'.'dbname=db_academia;charset=utf8', 'root', '');
     }
 
+    function Curso($id){
+        $sentencia = $this->db->prepare( "SELECT id_curso FROM curso WHERE id_curso = ?");
+        $sentencia->execute(array($id));
+
+        return !!$sentencia->fetch(PDO::FETCH_ASSOC);
+    }
+
 	public function GetCursos(){
         $sentencia = $this->db->prepare( "select * from curso");
         $sentencia->execute();
@@ -38,9 +45,9 @@ class CursosModel {
         $sentencia->execute(array($nombre,$profesor,$agno_correspondiente,$descripcion));
     }
 
-    public function ActualizarCurso($nombre,$id){
-        $sentencia = $this->db->prepare("UPDATE curso SET nombre=? WHERE id_curso=?");
-        $sentencia->execute(array($nombre,$id));
+    public function ActualizarCurso($seleccion,$dato,$id){
+        $sentencia = $this->db->prepare("UPDATE curso SET $seleccion =? WHERE id_curso=?");
+        $sentencia->execute(array($dato,$id));
     }
 
 

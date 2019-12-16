@@ -6,6 +6,7 @@ require_once "./Controllers/LoginController.php";
 require_once "./Controllers/IndexController.php";
 require_once "./Controllers/RegistroController.php";
 require_once "./Controllers/UsuariosController.php";
+require_once "./Controllers/JuegoController.php";
 
 $action = $_GET['action']; 
 //constantes
@@ -22,6 +23,7 @@ $LoginController = new LoginController();
 $IndexController = new IndexController();
 $RegistroController = new RegistroController();
 $UsuariosController = new UsuariosController();
+$JuegoController = new JuegoController();
 
     
 if ($_GET['action'] == ''){
@@ -97,14 +99,17 @@ $partesURL = explode('/', $action);
             $UsuariosController->ActualizarUsuario();
             break;
        case 'subirImagen':
-            $Alumnoscontroller->subirImagen($partesURL[1]); 
+            $AlumnosController->subirImagen($partesURL[1]); 
             break;
        case 'contraseña':
             $LoginController->mostrarPass();
             break;
-        case 'actualizarPass':
+       case 'actualizarPass':
             $LoginController->ActualizarPass();
             break;
+       case 'juego':
+            $JuegoController->mostrarJuego();
+                break;
         default:
             $IndexController->MostrarIndex();
             break;

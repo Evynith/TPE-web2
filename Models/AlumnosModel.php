@@ -8,6 +8,13 @@ class AlumnosModel {
         $this->db = new PDO('mysql:host=localhost;'.'dbname=db_academia;charset=utf8', 'root', '');
     }
 
+    function Alumno($id){
+        $sentencia = $this->db->prepare( "SELECT id_alumno FROM alumno WHERE id_alumno = ?");
+        $sentencia->execute(array($id));
+
+        return !!$sentencia->fetch(PDO::FETCH_ASSOC);
+    }
+
 	public function GetAlumnos(){
         $sentencia = $this->db->prepare( "select * from alumno");
         $sentencia->execute();
@@ -29,11 +36,16 @@ class AlumnosModel {
         $sentencia->execute(array($nombre,$apellido,$promedio,$edad,$habilidad,$telefono,$carrera_terminada,$id_curso));
     }
 
+    public function ActualizarAlumnoTest($seccion,$valor,$id_alumno){
+        $sentencia = $this->db->prepare("UPDATE alumno SET $seccion =? WHERE id_alumno = ?");
+        $sentencia->execute(array($valor,$id_alumno));
+    }
+/* 
     public function ActualizarAlumno($nombre,$id){
         $sentencia = $this->db->prepare("UPDATE alumno SET nombre=? WHERE id_alumno=?");
         $sentencia->execute(array($nombre,$id));
     }
-
+ */
     public function BorrarAlumno($id){
         $sentencia = $this->db->prepare("DELETE FROM alumno WHERE id_alumno=?");
         $sentencia->execute(array($id));
@@ -66,7 +78,7 @@ class AlumnosModel {
     } 
 
     public function TraerImagenes($id) {
-        $sentencia = $this->db->prepare( "select imagen from imagen where id_alumno = ?");
+        $sentencia = $this->db->prepare( "SELECT imagen FROM imagen WHERE id_alumno = ?");
         $sentencia->execute([$id]);
         $imagenes = $sentencia->fetchAll(PDO::FETCH_OBJ);
         

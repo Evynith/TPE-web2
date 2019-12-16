@@ -15,7 +15,7 @@
                 <form action="insertar" method="post">
                     <input type="text" name="nombre" placeholder="nombre">
                     <input type="text" name="apellido" placeholder="apellido">
-                    <input type="number" name="telefono" placeholder="telefono">
+                    <input type="number" name="telefono" placeholder="telefono" max="99999999">
                     <input type="text" name="habilidad" placeholder="habilidad">
                     <input type="number" name="edad" placeholder="edad">
                     <input type="text" name="promedio" placeholder="promedio">

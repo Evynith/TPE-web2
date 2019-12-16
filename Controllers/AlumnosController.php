@@ -22,12 +22,17 @@ class AlumnosController {
         $Alumnos = $this->model->GetAlumnos();
         $this->view->DisplayAlumnos($Alumnos);
     }
-    public function GetAlumno($id){
+    public function GetAlumno($id, $mensaje = null){
         $this->AuthHelper->checkLoggedIn();
-        $Alumno = $this->model->GetAlumno($id);
-        $imagenes= $this->model->TraerImagenes($id);
-        $this->view->DisplayAlumnoImg($Alumno,$imagenes);
-    }
+        $existe = $this->model->Alumno($id);
+
+        if ($existe == true){
+            $Alumno = $this->model->GetAlumno($id);
+            $imagenes= $this->model->TraerImagenes($id);
+            $this->view->DisplayAlumnoImg($Alumno,$imagenes,$mensaje);
+        }else{
+            header("Location: " . URL_ALUMNOS);
+    }   }
 
     public function InsertarAlumno(){
         $this->model->InsertarAlumno($_POST['nombre'],$_POST['apellido'],$_POST['promedio'],$_POST['edad'],$_POST['habilidad'],$_POST['telefono'],$_POST['carrera_terminada'],$_POST['id_curso']);
@@ -35,9 +40,10 @@ class AlumnosController {
     }
 
     public function ActualizarAlumno(){
-        $nombre = $_POST['nombre_u'];
+        $seleccion = $_POST['seccion_u'];
+        $valor = $_POST['valor_u'];
         $id = $_POST['id_alumno_u'];
-        $this->model->ActualizarAlumno($nombre,$id);
+        $this->model->ActualizarAlumnoTest($seleccion,$valor,$id);
         $this->GetAlumno($id);
     }
 
@@ -56,12 +62,13 @@ class AlumnosController {
         if($_FILES['input_name']['tmp_name']) {
             if($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
                 $this->model->subirImagen($_FILES['input_name']['tmp_name'], $id_alumno);
-                header("Location: " . URL_ALUMNOS);
+                
+                $this->GetAlumno($id_alumno, null);
             } else {
-                $this->view->DisplayAlumno($id_alumno, "Formato de imagen incorrecto.");
+                $this->GetAlumno($id_alumno, "Formato de imagen incorrecto.");
             }
         }else {
-                $this->view->DisplayAlumno($id_alumno, "Elija una imagen.");
+                $this->GetAlumno($id_alumno, "Elija una imagen.");
     }   }
 
     /* public function MostrarImagenes($id) {

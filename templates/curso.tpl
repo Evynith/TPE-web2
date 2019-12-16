@@ -22,8 +22,14 @@
 
         {if isset($userLevel) && ($userLevel == 1)}
             <form action="actualizarCurso" method="post">
-                <input type="text" name="nombre_u" placeholder="nombre" id="nombre">
-                <input type="number" name="id curso_u" placeholder="id curso" value="{$curso->id_curso}" class= "inexistente">
+                <select name="seccion_u"  placeholder="columna a modificar">
+                    <option value="nombre">nombre</option> 
+                    <option value="descripcion" selected>descripcion</option>
+                    <option value="agno_correspondiente">año</option>
+                    <option value="profesor">profesor</option>
+                </select>
+                <input type="text" name="dato_u" placeholder="nuevo valor" id="nombre">
+                <input type="number" name="id_curso_u" placeholder="id curso" value="{$curso->id_curso}" class= "inexistente">
                 <input type="submit" value="Actualizar curso">
             </form>
         {/if}

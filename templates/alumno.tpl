@@ -6,6 +6,12 @@
             {include file= "nav.tpl"}
         </nav>
 
+            {if isset($mensaje)}
+                <div class= "alert">
+                    {{$mensaje}}
+                </div>
+            {/if}
+
         <section class= "datosAlumno">
             <section class= "alumno">
                 {foreach from=$lista_Alumnos item=alumno}
@@ -38,17 +44,17 @@
 
             {if isset($userLevel) && ($userLevel == 1)}
                 <h2> Actualizar </h2>
-                <form action="actualizarAlumno" method="post">
-                    <input type="text" name="nombre_u" placeholder="nombre" >
-                    {*
-                    <input type="text" name="apellido_u" placeholder="apellido">
-                    <input type="number" name="telefono_u" placeholder="telefono">
-                    <input type="text" name="habilidad_u" placeholder="habilidad">
-                    <input type="number" name="edad_u" placeholder="edad">
-                    <input type="text" name="promedio_u" placeholder="promedio">
-                    <input type="number" name="id_curso_u" placeholder="id_curso">
-                    <input type="number" name="carrera terminada_u" placeholder="carrera terminada">
-                     *}
+                    <form action="actualizarAlumno" method="post">
+                    <select name="seccion_u"  placeholder="columna a modificar">
+                        <option value="nombre">nombre</option> 
+                        <option value="apellido" selected>apellido</option>
+                        <option value="telefono">telefono</option>
+                        <option value="habilidad">habilidad</option>
+                        <option value="promedio">promedio</option>
+                        <option value="edad">edad</option>
+                        <option value="carrera_terminada">carrera terminada</option>
+                    </select>
+                    <input type="text" name="valor_u" placeholder="nuevo dato" >
                     <input type="number" name="id_alumno_u" placeholder="id alumno" value="{$alumno->id_alumno}" class= "inexistente">
                     <input type="submit" value="Actualizar alumno">
                 </form>

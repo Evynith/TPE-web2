@@ -19,16 +19,16 @@
         </header>
 
         <a href="../academia/login" class="btnNvl1 registroHome" >
-            <figure><img href="../academia/login" src="../academia/images/registro.png" alt="chica con mascara" class="imagenPromocional"></figure>
+            {* <figure><img href="../academia/login" src="../academia/images/registro.png" alt="chica con mascara" class="imagenPromocional"></figure> *}
             <h1 href="../academia/login">Logueate!</h1>
         </a>
-     
-        <a class="btnNvl1 galeria">
-            <figure><img src="images/" alt="chico en encuentro de la academia" class="imagenPromocional"></figure>
-            <h1>Galeria</h1>
+
+        <a href="../academia/alumnos" class="btnNvl1 alumnos">
+            <h1 href="../academia/alumnos">Alumnos</h1>
         </a>
+        
         <a href="../academia/cursos" class="btnNvl1 ranking">
-            <figure><img href="../academia/cursos" src="images/" alt="curso en el podio, primer puesto" class="imagenPromocional"></figure>
+            {* <figure><img href="../academia/cursos" src="images/" alt="curso en el podio, primer puesto" class="imagenPromocional"></figure> *}
             <h1 href="../academia/cursos">Cursos</h1>
         </a>
 
@@ -40,19 +40,23 @@
         </aside>
 
         <a class="btnNvl2 video">
-            <figure>
+            {* <figure>
                 <img src="" class="imagenPromocional">
                 <figcaption><h2>Promocional</h2></figcaption>
-            </figure>
+            </figure> *}
+            <h2>Promocional</h2>
         </a>
         {if isset($userLevel) && ($userLevel == 1)}
             <a href="../academia/usuarios" class="btnNvl2 plan">
                 <h2 href="../academia/usuarios">Usuarios</h2>
             </a>
         {/if}
-        <a href="../academia/alumnos" class="btnNvl2 alumnos">
-            <h2 href="../academia/alumnos">Alumnos</h2>
+
+        <a class="btnNvl2 galeria">
+            {* <figure><img src="images/" alt="chico en encuentro de la academia" class="imagenPromocional"></figure> *}
+            <h2>Galeria</h2>
         </a>
+
     </div>
     <footer class="footerContainer">
         {include file="footer.tpl"}

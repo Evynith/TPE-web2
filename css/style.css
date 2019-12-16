@@ -1,15 +1,25 @@
 /*-------------------------------------------------general-----------------------------------------------*/
-* {
+*
+ 
+{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     list-style:none;
     color: #ffffff;
     margin: 0;
     padding: 0;
 }
+canvas {
+    border: 1px solid white;
+}
+
 html,body{
     width: 100%;
     height: 100%;
-    font-size: 1.2rem;
+    font-size: 1rem;
+}
+.alert{
+    color: red;
+    font-size: 1.8rem;
 }
 body{
     background: #141A26;
@@ -53,12 +63,12 @@ thead{
     width: 40%;
     height: 90%;
 }
-  .aMostrar{
-    width: 100%;
-    height: 5vh;
-    position:fixed;
-    top:0;
-  }
+.aMostrar{
+  width: 100%;
+  height: 5vh;
+  position:fixed;
+  top:0;
+}
 .barraNav{
     height: 100%;
     background:  #D99543;
@@ -95,7 +105,7 @@ thead{
 }
 /*----------------------------------------footer---------------------------------------------------------*/
 footer{
-    background-color: #244040;
+    background-color: #000000;
     border-top: 3px solid  #141A26;
     clear: both;
     width: 100%;
@@ -108,8 +118,31 @@ footer{
     justify-content: space-around;
     align-items: flex-end;
 }
-/*----------------------------------------home-------------------------------------------------------*/
-/*-------------------carousel-------------------------------------------------------*/
+/*----------------------------------------home-------------------------------------------------------------*/
+/*----------------------------------------------------*/
+/*
+@supports(object-fit: cover){
+    .btnNvl1 img{
+      height: 70%;
+      width:70%;
+      object-fit: cover;
+      object-position: center;
+    }
+} 
+.registroHome figure{
+    margin:0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+.registroHome{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 3rem;
+}
+*/
+/*-------------------carousel----------------------------------*/
 #atras,#siguiente{
     padding: 0.5rem 1rem;
     font-size: 2rem;
@@ -145,46 +178,11 @@ footer{
     top: 0;
     z-index: 1;
 }
-/*----------------------------------------------------------------------------------*/
-@supports(object-fit: cover){
-    .btnNvl1 img{
-      height: 70%;
-      width:70%;
-      object-fit: cover;
-      object-position: center;
-    }
-}
-.registroHome{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 3rem;
-}
-.galeria{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: space-around;
-}
-.ranking{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
-}
-.registroHome figure{
-    margin:0;
-    margin-inline-start: 0;
-    margin-inline-end: 0;
-}
+/*------------------------------------------twitter--------------------------------------------*/
 aside h2{
     font-size: 2rem;
     text-align: center;
 }
-/*------------------------------------------twitter--------------------------------------------*/
 .box{
     height: 90%;
     display: block;
@@ -228,6 +226,7 @@ aside h2{
         flex-wrap: nowrap;
         justify-content: space-between;
         align-items: stretch;
+        font-size: 24px;
     }
     nav{
         height: 5%;
@@ -253,8 +252,8 @@ aside h2{
         grid-template-areas: 
         "header header header header header header header header" 
         "article1 article1 article1 article1 article1 article1 aside aside" 
-        "galeria galeria galeria ranking ranking ranking aside aside" 
-        "video video plan plan graduados graduados aside aside";
+        "graduados graduados graduados ranking ranking ranking aside aside" 
+        "video video plan plan galeria galeria aside aside";
     }
     
     header { grid-area: header; }
@@ -267,44 +266,45 @@ aside h2{
     .ranking { grid-area: ranking; }
 
     .registroHome{
-        background: #95B8BF;
+        background: rgb(1, 6, 255);
     }
     aside{
         background: #D99543;
-        border-radius:20px;
+        margin: 5px;
+        /* border-radius:20px; */
+    }
+    .video{
+        background: rgb(204, 0, 204);
+    }
+    .plan{
+        background: rgb(0, 200, 43);
+    }
+    .alumnos{
+        background: rgb(194, 0, 0);
+    }
+    .galeria{
+        background: rgb(0, 175, 206);
+    }
+    .ranking{
+        background: rgb(189, 7, 98);
     }
     .btnNvl1{
-        background-color: #95B8BF;
-        border-radius: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* background-color: #95B8BF;
+        border-radius: 30px; */
         margin: 5px;
+        font-size: 2rem;
     }
     .btnNvl2{
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #95B8BF;
-        border-radius: 30px;
+       /*  background-color: #95B8BF;
+        border-radius: 30px; */
         margin: 7px;
     }
-   /*--------ranking------------------*/
-   /* .rankingContainer figure{
-       background: #39af29;
-    }
-    .rankingContainer{
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-        grid-template-rows: repeat(5,1fr);
-        grid-template-areas: ". . img1 . ." ". img2 img1 img3 ." "img5 img2 img1 img3 img4" "img5 img2 img1 img3 img4" "img5 img2 img1 img3 img4";
-    }
-    
-    .img1 { grid-area: img1; }
-    .img2 { grid-area: img2; }
-    .img3 { grid-area: img3; }
-    .img4 { grid-area: img4; }
-    .img5 { grid-area: img5; }
- */
     /*--------alumno-----------------------*/
     @supports(object-fit: cover){
         .datosAlumno .imagenes img{
@@ -360,6 +360,7 @@ aside h2{
     #template_vue_comentarios::-webkit-scrollbar-track {
         border-radius: 10px;  
     }
+
 
 }
 /*--------------------------------------------MOVIL--------------------------------------------*/
